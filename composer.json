@@ -1,0 +1,16 @@
+{
+    "name": "globegroup/emaillabs-mailer",
+    "type": "library",
+    "description": "Emaillabs.pl mailer using symfony/mailer transport abstraction.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mateusz.kaczmarek",
+            "email": "mateusz.kaczmarek@globegroup.pl"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "symfony/mailer": "4.4.*",
+    }
+}
