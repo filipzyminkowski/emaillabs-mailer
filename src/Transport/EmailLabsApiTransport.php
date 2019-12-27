@@ -82,12 +82,14 @@ class EmailLabsApiTransport extends AbstractApiTransport
         $payload = $this->prepareRecipents($sentMessage, $email, $envelope, $payload);
         $payload = $this->prepareBody($email, $payload);
         $payload = $this->prepareAttachments($email, $payload);
+        $payload = $this->prepareTags($email, $payload);
 
-        $headersToBypass = ['from', 'to', 'cc', 'bcc', 'subject', 'content-type'];
+        $headersToBypass = ['from', 'to', 'cc', 'bcc', 'subject', 'content-type', 'x-mailtags'];
         foreach ($email->getHeaders()->all() as $name => $header) {
             if (\in_array($name, $headersToBypass, true)) {
                 continue;
             }
+
             $payload['headers'][] = $header->toString();
         }
 
@@ -159,6 +161,16 @@ class EmailLabsApiTransport extends AbstractApiTransport
         /** @var Address $bcc */
         foreach ($email->getCc() as $bcc) {
             $payload['bcc'][$bcc->getAddress()] = $bcc->getName();
+        }
+
+        return $payload;
+    }
+
+    private function prepareTags(Email $email, array $payload): array
+    {
+        if ($tagsHeader = $email->getHeaders()->get('x-mailtags')) {
+            $tags = explode(';', $tagsHeader->getBody());
+            $payload['tags'] = $tags;
         }
 
         return $payload;
