@@ -9,8 +9,14 @@ Features included:
 
 Installation
 ------------
+<a name="installation" />
 
 1.  [symfony/mailer](https://github.com/symfony/mailer) is required in version 4.4.*
+1.  Execute command:
+    ```
+    composer require globegroup/emaillabs-mailer
+    ```
+    
 1.  Add service declaration in services.yaml:
     ```yaml
     GlobeGroup\EmailLabsMailer\Transport\EmailLabsTransportFactory:
@@ -27,8 +33,27 @@ Installation
     ###< symfony/mailer ###
     ```
 
+LOCAL TESTING
+------------
+<a name="local-testing" />
+
+1.  Clone repository into `symfony/localVendor` folder.
+1.  Add into composer.json:
+    ```json
+    "repositories": [
+        {
+            "type": "path",
+            "url": "localVendor/globegroup-emaillabs-mailer"
+        }
+    ],
+    ```
+1.  Check if `minimum-stability` is set to `dev`.
+1.  Proceed to [Installation](#installation).
+
 TODO
 ------------
+<a name="todo" />
+
 1.  Verify string length? For example subject in EmailLabs is max 128 chars.
 1.  Add recipe which automatically add service declaration.
 1.  Add recipe which automatically add .env custom configuration example.
