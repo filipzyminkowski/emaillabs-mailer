@@ -52,6 +52,8 @@ LOCAL TESTING
 
 EmailLabs specific functions
 ------------
+<a name="emaillabs-specific-functions" />
+
 * Tags
 
     Add `X-MailTags` header when creating new email message and separate tags by `;` as in example code:
