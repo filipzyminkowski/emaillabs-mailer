@@ -50,6 +50,16 @@ LOCAL TESTING
 1.  Check if `minimum-stability` is set to `dev`.
 1.  Proceed to [Installation](#installation).
 
+EmailLabs specific functions
+------------
+* Tags
+
+    Add `X-MailTags` header when creating new email message and separate tags by `;` as in example code:
+    ```php
+    $email = new Email();
+    $email->getHeaders()->addTextHeader('X-MailTags', 'tag_1;tag_2');
+    ```
+
 TODO
 ------------
 <a name="todo" />
@@ -57,4 +67,3 @@ TODO
 1.  Verify string length? For example subject in EmailLabs is max 128 chars.
 1.  Add recipe which automatically add service declaration.
 1.  Add recipe which automatically add .env custom configuration example.
-1.  Support for EmailLabs TAGS functionality: [http://docs.emaillabs.io/smtp-en/tags/](http://docs.emaillabs.io/smtp-en/tags/)
