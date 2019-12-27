@@ -62,6 +62,11 @@ EmailLabs specific functions
     $email->getHeaders()->addTextHeader('X-MailTags', 'tag_1;tag_2');
     ```
 
+License
+-------
+
+This bundle is under the MIT license. See the complete [LICENSE](LICENSE)
+
 TODO
 ------------
 <a name="todo" />
